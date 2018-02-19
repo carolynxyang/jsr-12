@@ -6,7 +6,7 @@
 
 #popUp {
   opacity: 0.95;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -55,6 +55,11 @@
 #popUp .popUpAction:hover {
   color: #FE052C;
   background: #fff;
+}
+#popUp div img {
+  width: 600px;
+  height: auto;
+  display: block;
 }
 
 /* Header styles */
@@ -115,6 +120,7 @@ header #search img {
 header #search input {
   position: absolute;
   right: 20px;
+  height: 100%;
   /*top: 10px;*/
   padding: 8px 0;
   width: 0;
@@ -123,7 +129,7 @@ header #search input {
 }
 
 header #search.active input {
-  width: 160px;
+  width: 240px;
   padding: 8px 10px;
   visibility: visible;
 }
@@ -153,6 +159,7 @@ nav ul {
   margin-right: 30px;
 	list-style: none;
 	position: relative;
+  float: right;
 	}
 
 nav ul li {
