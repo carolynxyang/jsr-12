@@ -21,16 +21,22 @@
   font-size: 40px;
   color: #FE052C;
   text-decoration: none;
+  margin-right: 200px;
+  margin-top: 50px;
 }
 
-#popUp.loader {
-  background-image: url(../images/astronaut.gif);
-  background-repeat: no-repeat;
-  background-position: center center;
-}
+#loader {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
 
-#popUp.loader .container {
-  display: none;
+}
+#loader img{
+  width: 800px;
+  height:auto;
+  display: block;
+  margin: auto;
+  margin-top: 200px;
 }
 
 #popUp .container {
@@ -38,7 +44,7 @@
 }
 
 #popUp h1 {
-  margin-bottom: 0;
+  margin-bottom: 10px;
 }
 
 #popUp .popUpAction {
@@ -48,13 +54,13 @@
   text-decoration: none;
   border-radius: 5px;
   transform: 0.2s all;
-  margin-top: 30px;
+  margin-top: 10px;
   display: inline-block;
 }
 
 #popUp .popUpAction:hover {
-  color: #FE052C;
-  background: #fff;
+  color: #fff;
+  background: #CC0020;
 }
 #popUp div img {
   width: 600px;

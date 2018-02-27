@@ -48,7 +48,6 @@ class NYTSource extends newsSource{
 
 class NPRSource extends newsSource{
 	loadAndParse(){
-
 		return $.ajax({
 		    dataType: "json",
 		    url: this.url,
@@ -78,9 +77,6 @@ function render(list){
 				<section class="articleContent">
 					<a class="articleUrl" href="`+list[i].url+`"><h3>`+list[i].title+`</h3></a>
 					<h6 class="articleabstract">`+list[i].abstract+`</h6>
-				</section>
-				<section class="impressions">
-					526
 				</section>
 				<div class="clearfix"></div>
 			</article>`;
@@ -149,12 +145,9 @@ $.when.apply( null, requests ).then(function() {
 		fullList = fullList.concat(arguments[i]);
 	}
 	render(fullList, null);
+	$("#loader").hide();
 	
 });
-
-
-
-
 
 
 $(document).on("click",".article", function (event){
