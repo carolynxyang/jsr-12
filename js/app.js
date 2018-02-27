@@ -1,4 +1,4 @@
-
+//individual posts
 
 class newsItem{
 	constructor(thumbnail, title, abstract, publisher, published_date, url, big_picture) {
@@ -12,25 +12,33 @@ class newsItem{
 	}
 }
 
-class NewsSource{
+//news source
+
+class newsSource{
 	constructor(publisher, url){
 		this.publisher = publisher;
 		this.url = url;
 	}
 }
 
-class NYTSource extends NewsSource{
-	loadAndParse(){
+class NYTSource extends newsSource{
+	loadAndParse(){  
 		return $.ajax({
 		    dataType: "json",
 		    url: this.url,
 		    method: 'GET',
 		}).then(function(data) {
-			console.log(data);
 			var newsList = [];
 			for (var i = 0; i < data.results.length; i++){
 				var x = data.results[i];
-				var item = new newsItem(x.multimedia[1].url, x.title, x.abstract, "New York Times", x.published_date, x.url, x.multimedia[4].url);
+				console.log(x);
+				if(x.multimedia.length>0)
+				{
+					var item = new newsItem(x.multimedia[1].url, x.title, x.abstract, "New York Times", x.published_date, x.url, x.multimedia[3].url);	
+				}else{
+					var item = new newsItem("", x.title, x.abstract, "New York Times", x.published_date, x.url, "");
+				}
+				
 				newsList.push(item);
 			}
 			return newsList;
@@ -38,7 +46,7 @@ class NYTSource extends NewsSource{
 	}
 }
 
-class NPRSource extends NewsSource{
+class NPRSource extends newsSource{
 	loadAndParse(){
 
 		return $.ajax({
@@ -95,7 +103,7 @@ function filter(publisher, text){
 		})
 	}else if(text){
 		$(".article").each(function (index,item){
-			if($(item).find(".articleabstract")[0].innerText.toLowerCase().indexOf(text)!== -1){
+			if($(item).find(".articleabstract")[0].innerText.toLowerCase().indexOf(text.toLowerCase())!== -1){
 				$(item).show();
 			}else{
 				$(item).hide();
